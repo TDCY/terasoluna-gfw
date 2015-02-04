@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -403,7 +403,7 @@ public class ExceptionLogger implements InitializingBean {
      * If a logger of same level has already been registered, it will be overwritten.
      * </p>
      * @param level exception level
-     * @param delegatingLogger logger
+     * @param logger delegating logger
      */
     protected void registerExceptionLevelLoggers(ExceptionLevel level,
             LogLevelWrappingLogger logger) {
@@ -429,7 +429,7 @@ public class ExceptionLogger implements InitializingBean {
     /**
      * Outputs the log using specified logger.
      * @param ex Exception
-     * @param delegatingLogger delegating logger
+     * @param logger delegating logger
      */
     private void log(Exception ex, LogLevelWrappingLogger logger) {
         if (!logger.isEnabled()) {

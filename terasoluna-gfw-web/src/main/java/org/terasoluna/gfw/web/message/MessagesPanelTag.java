@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -291,7 +291,7 @@ public class MessagesPanelTag extends RequestContextAwareTag {
 	 * </p>
 	 * 
 	 * @param tagWriter
-	 * @param message
+	 * @param messages
 	 * @throws JspException
 	 *             If {@link JspException} occurs in caller writeMessage
 	 */
@@ -332,7 +332,7 @@ public class MessagesPanelTag extends RequestContextAwareTag {
 	 * @param tagWriter
 	 * @param message
 	 * @throws JspException
-	 *             Occurs when {@link #JspTagException} occurs in case when
+	 *             Occurs when {@link JspTagException} occurs in case when
 	 *             nothing is set in the configuration of the tag that
 	 *             configures MessagePanel using tagWriter.
 	 */

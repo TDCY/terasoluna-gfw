@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ public class JdbcFixedDateFactory extends AbstractDateFactory {
 
     /**
      * Sets JDBC Template from DataSource
-     * @param dataSource
+     * @param dataSource dataSource
      */
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -74,7 +74,7 @@ public class JdbcFixedDateFactory extends AbstractDateFactory {
 
     /** the current timestamp received as parameter.
      * Sets
-     * @param currentTimestampQuery
+     * @param currentTimestampQuery SQL to retrieve current timestamp
      */
     public void setCurrentTimestampQuery(String currentTimestampQuery) {
         this.currentTimestampQuery = currentTimestampQuery;

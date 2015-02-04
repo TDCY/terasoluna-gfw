@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,8 +34,6 @@ public class TransactionTokenInfo {
      * Constructor <br>
      * @param tokenName name part of the {@link TransactionToken} represented by this {@link TransactionTokenInfo} instance
      * @param tokenType type of the {@link TransactionToken} represented by this {@link TransactionTokenInfo} instance
-     * @param error error message to be displayed when token check fails
-     * @param errorStatus HttpStatus
      */
     public TransactionTokenInfo(final String tokenName,
             final TransactionTokenType tokenType) {

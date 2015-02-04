@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ package org.terasoluna.gfw.web.token.transaction;
 public enum TransactionTokenType {
 
     /**
-     * A {@link TransactionToken} of type {@link NONE} is created when {@link TransactionTokenCheck} annotation is not found for
+     * A {@link TransactionToken} of type {@link #NONE} is created when {@link TransactionTokenCheck} annotation is not found for
      * a particular handlerMethod. In this case, the token check functionality is not invoked
      */
     NONE(false, false),

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,12 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import org.joda.time.DateTime;
-
 /**
  * Abstract implementation of {@link DateFactory}.
  * <p>
- * This class converts from {@link DateTime} to {@link java.util.Date}, {@link java.sql.Timestamp}, {@link java.sql.Date},
+ * This class converts from {@link org.joda.time.DateTime} to {@link java.util.Date}, {@link java.sql.Timestamp}, {@link java.sql.Date},
  * {@link java.sql.Time} <br>
- * so all things that concrete classes do is to return current {@link DateTime}.
+ * so all things that concrete classes do is to return current {@link org.joda.time.DateTime}.
  * </p>
  */
 public abstract class AbstractDateFactory implements DateFactory {
@@ -42,7 +40,7 @@ public abstract class AbstractDateFactory implements DateFactory {
     }
 
     /**
-	 * Returns {@link java.util.Timestamp} instance corresponding to current date and time.
+	 * Returns {@link java.sql.Timestamp} instance corresponding to current date and time.
 	 * 
 	 * @return Timestamp current date
      */

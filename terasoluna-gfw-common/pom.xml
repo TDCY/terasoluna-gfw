@@ -5,7 +5,7 @@
     <parent>
         <artifactId>terasoluna-gfw-parent</artifactId>
         <groupId>org.terasoluna.gfw</groupId>
-        <version>1.0.1.RELEASE</version>
+        <version>1.0.2.RC2</version>
         <relativePath>../terasoluna-gfw-parent/pom.xml</relativePath>
     </parent>
     <artifactId>terasoluna-gfw-common</artifactId>
@@ -24,14 +24,6 @@
         <plugins>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/org/terasoluna/gfw/common/bean/*Test.java</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -105,10 +97,6 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.logging</groupId>
-            <artifactId>jboss-logging</artifactId>
         </dependency>
         <!-- == End BeanValidation == -->
 
@@ -198,30 +186,5 @@
         </dependency>
         <!-- == End Unit Test == -->
 
-        <!-- == Begin Dozer== -->
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- == End Dozer== -->
-
     </dependencies>
-    <properties>
-        <checkstyle.rule.xml>src/etc/checkstyle.xml</checkstyle.rule.xml>
-        <!-- <findbugs.includefilter.xml>src/etc/foo.xml</findbugs.includefilter.xml> -->
-        <!-- <findbugs.includefilter.xml>src/etc/bar.xml</findbugs.includefilter.xml> -->
-    </properties>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>

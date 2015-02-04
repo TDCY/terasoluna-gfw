@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.terasoluna.gfw</groupId>
     <artifactId>terasoluna-gfw-parent</artifactId>
-    <version>1.0.1.RELEASE</version>
+    <version>1.0.2.RC2</version>
     <packaging>pom</packaging>
     <name>TERASOLUNA Global Framework Parent</name>
     <description>The parent of TERASOLUNA Global Framework</description>
@@ -128,11 +128,9 @@
                         <encoding>${encoding}</encoding>
                         <docencoding>${encoding}</docencoding>
                         <locale>en</locale>
-                        <configuration>
-                            <archive>
-                                <addMavenDescriptor>false</addMavenDescriptor>
-                            </archive>
-                        </configuration>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
                     </configuration>
                     <executions>
                         <execution>
@@ -909,16 +907,6 @@
                 <version>${terasoluna.gfw.version}</version>
                 <type>pom</type>
             </dependency>
-            <dependency>
-                <groupId>org.terasoluna.gfw</groupId>
-                <artifactId>terasoluna-gfw-common</artifactId>
-                <version>${terasoluna.gfw.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.terasoluna.gfw</groupId>
-                <artifactId>terasoluna-gfw-batch</artifactId>
-                <version>${terasoluna.gfw.batch.version}</version>
-            </dependency>
             <!-- == End TERASOLUNA == -->
         </dependencies>
     </dependencyManagement>
@@ -934,8 +922,7 @@
     </distributionManagement>
     <properties>
         <!-- == TERASOLUNA == -->
-        <terasoluna.gfw.version>1.0.1.RELEASE</terasoluna.gfw.version>
-        <terasoluna.gfw.batch.version>1.0.0-SNAPSHOT</terasoluna.gfw.batch.version>
+        <terasoluna.gfw.version>1.0.2.RC2</terasoluna.gfw.version>
         <!-- == Google == -->
         <com.google.guava.version>13.0.1</com.google.guava.version>
         <!-- == Apache Commons == -->
@@ -966,7 +953,7 @@
         <ch.qos.logback.version>1.0.13</ch.qos.logback.version>
         <org.lazyluke.version>0.2.7</org.lazyluke.version>
         <!-- == Spring Framework == -->
-        <org.springframework-version>3.2.10.RELEASE</org.springframework-version>
+        <org.springframework-version>3.2.13.RELEASE</org.springframework-version>
         <org.springframework.data.spring-data-jpa.version>1.4.3.RELEASE</org.springframework.data.spring-data-jpa.version>
         <org.springframework.data.version>1.6.4.RELEASE</org.springframework.data.version>
         <org.springframework.security.version>3.1.4.RELEASE</org.springframework.security.version>
@@ -979,7 +966,7 @@
         <junit.version>4.7</junit.version>
         <hamcrest.version>1.2.1</hamcrest.version>
         <org.mockito.version>1.9.0</org.mockito.version>
-        <selenium.version>2.34.0</selenium.version>
+        <selenium.version>2.44.0</selenium.version>
         <!-- == Maven Plugins == -->
         <maven-eclipse-plugin.version>2.6</maven-eclipse-plugin.version>
         <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
@@ -1009,5 +996,8 @@
         <com.google.code.maven-license-plugin.version>1.4.0</com.google.code.maven-license-plugin.version>
         <encoding>UTF-8</encoding>
         <java-version>1.6</java-version>
+        <checkstyle.rule.xml />
+        <findbugs.includefilter.xml />
+        <findbugs.excludefilter.xml />
     </properties>
 </project>

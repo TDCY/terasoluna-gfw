@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import org.terasoluna.gfw.common.codelist.ExistInCodeList;
  * <p>
  * Validates whether the value of field for which the custom annotation is used, is 
  * a valid code existing in the {@link CodeList} specified as a parameter to the 
- * {@link ExistInCodeListId} annotation.
+ * {@link ExistInCodeList} annotation.
  * </p>
  */
 public abstract class AbstractExistInCodeListValidator<T> extends
