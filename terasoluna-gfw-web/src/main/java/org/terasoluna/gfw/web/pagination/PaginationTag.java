@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,6 +57,12 @@ public class PaginationTag extends RequestContextAwareTag {
      * @since 1.0.1
      */
     private boolean disableHtmlEscapeOfCriteriaQuery;
+    
+    /**
+     * Flag to enable the link of current page.
+     * @since 5.0.0
+     */
+    private boolean enableLinkOfCurrentPage;
 
     /**
      * Maximum display count
@@ -214,10 +220,14 @@ public class PaginationTag extends RequestContextAwareTag {
         tagWriter.startTag(innerElement); // <li>
         if (info.isCurrent(page)) {
             tagWriter.writeAttribute(PaginationInfo.CLASS_ATTR, activeClass);
+            if(enableLinkOfCurrentPage) {
+                writeAnchor(tagWriter, info.getPageUrl(page), String.valueOf(page + 1)); // a
+            } else {
+                writeAnchor(tagWriter, disabledHref, String.valueOf(page + 1)); // a
+            }
+        } else {
+            writeAnchor(tagWriter, info.getPageUrl(page), String.valueOf(page + 1)); // a
         }
-
-        writeAnchor(tagWriter, info.getPageUrl(page), String.valueOf(page + 1)); // a
-
         tagWriter.endTag(); // </li>
     }
 
@@ -345,6 +355,7 @@ public class PaginationTag extends RequestContextAwareTag {
         this.queryTmpl = null;
         this.criteriaQuery = null;
         this.disableHtmlEscapeOfCriteriaQuery = false;
+        this.enableLinkOfCurrentPage = false;
         this.outerElement = null;
         this.outerElementClass = null;
         this.innerElement = null;
@@ -404,6 +415,22 @@ public class PaginationTag extends RequestContextAwareTag {
         this.disableHtmlEscapeOfCriteriaQuery = JspTagUtils.toBoolean(
                 disableHtmlEscapeOfCriteriaQuery, false,
                 "disableHtmlEscapeOfCriteriaQuery");
+    }
+    
+    /**
+     * Sets the value for enableLinkOfCurrentPage property.
+     * <p>
+     * IF set to true, link of current page is enabled. <br>
+     * By default, enableLinkOfCurrentPage is set to <code>false</code>. This means <br>
+     * link of current page is disabled by default.
+     * @param enableLinkOfCurrentPage value of enableLinkOfCurrentPage
+     * @since 5.0.0
+     */
+    public void setEnableLinkOfCurrentPage(
+            String enableLinkOfCurrentPage) throws JspException {
+        this.enableLinkOfCurrentPage = JspTagUtils.toBoolean(
+                enableLinkOfCurrentPage, false,
+                "enableLinkOfCurrentPage");
     }
 
     /**

@@ -4,7 +4,7 @@
     <parent>
         <artifactId>terasoluna-gfw-parent</artifactId>
         <groupId>org.terasoluna.gfw</groupId>
-        <version>1.0.1.RELEASE</version>
+        <version>5.0.0.RC6</version>
         <relativePath>../terasoluna-gfw-parent/pom.xml</relativePath>
     </parent>
     <artifactId>terasoluna-gfw-jpa</artifactId>
@@ -18,17 +18,23 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!-- JPA API 2.0 -->
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-        </dependency>
-        <!-- == End JPA == -->
 
         <!-- == Begin Spring == -->
         <!-- Spring Data -->

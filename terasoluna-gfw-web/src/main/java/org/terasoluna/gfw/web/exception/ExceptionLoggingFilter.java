@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,17 +21,14 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.filter.GenericFilterBean;
-import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.terasoluna.gfw.common.exception.ExceptionLogger;
 
 /**
  * Servlet filter class for log output of exception.
  * <p>
- * This class outputs the log of exceptions which do not get handled by {@link HandlerExceptionResolver} of SpringMVC.<br>
+ * This class outputs the log of exceptions which do not get handled by {@link org.springframework.web.servlet.HandlerExceptionResolver} of SpringMVC.<br>
  * Must be specified in Servlet filter. <br>
  * </p>
  * <p>
@@ -92,8 +89,8 @@ public class ExceptionLoggingFilter extends GenericFilterBean {
 
     /**
      * Executes next filter. logs exception if exception is occurred.
-     * @param request {@link HttpServletRequest}
-     * @param response {@link HttpServletResponse}
+     * @param servletRequest {@link ServletRequest}
+     * @param servletResponse {@link ServletResponse}
      * @param filterChain {@link FilterChain}
      * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse,
      *      javax.servlet.FilterChain)

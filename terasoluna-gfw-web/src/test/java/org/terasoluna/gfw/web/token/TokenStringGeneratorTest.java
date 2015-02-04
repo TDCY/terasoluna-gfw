@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ public class TokenStringGeneratorTest {
         try {
             new TokenStringGenerator("InvalidAlgorithm");
         } catch (Exception e) {
-            assertThat(e.getCause(), is(NoSuchAlgorithmException.class));
+            assertThat(e.getCause(), is(instanceOf(NoSuchAlgorithmException.class)));
             assertThat(
                     e.getMessage(),
                     is("The given algorithm is invalid. algorithm=InvalidAlgorithm"));

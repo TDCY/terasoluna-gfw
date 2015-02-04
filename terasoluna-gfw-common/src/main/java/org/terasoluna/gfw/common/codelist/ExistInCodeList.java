@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
-import javax.validation.ConstraintViolation;
 import javax.validation.Payload;
 
 import org.terasoluna.gfw.common.codelist.validator.ExistInCodeListValidatorForCharacter;
@@ -45,7 +44,7 @@ import org.terasoluna.gfw.common.codelist.validator.ExistInCodeListValidatorForS
  * In the above code, ExistInCodeList annotation checks whether the code in gender field <br>
  * exists in {@code CD_GENDER} {@link CodeList}. <br>
  * <br>
- * If the the code does not exist in the {@link CodeList}, an instance of {@link ConstraintViolation} is returned with the
+ * If the the code does not exist in the {@link CodeList}, an instance of {@link javax.validation.ConstraintViolation} is returned with the
  * default error message represented by {@code message()} in it.
  * </p>
  */
@@ -59,7 +58,7 @@ public @interface ExistInCodeList {
      * Error message or message key
      * @return error message or message key
      */
-    String message() default "{org.terasoluna.gfw.common.codelist.ExistInCodeList}";
+    String message() default "{org.terasoluna.gfw.common.codelist.ExistInCodeList.message}";
 
     /**
      * Bean ID of the codelist in which check the value<br>

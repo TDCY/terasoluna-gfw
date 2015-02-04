@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,39 +100,6 @@ public class HttpSessionEventLoggingListenerTest {
 
         // assert
         verifyLogging(didActivateStr, Level.DEBUG);
-
-    }
-
-    /**
-     * session ValueBound logging
-     */
-    @Test
-    public void testValueBound() {
-        // expected
-        final String valueBoundStr = "SESSIONID#" + mockHttpSession.getId()
-                + " valueBound : terasoluna=AA";
-
-        // run
-        listener.valueBound(sessionBindingEvent);
-
-        // assert
-        verifyLogging(valueBoundStr, Level.DEBUG);
-    }
-
-    /**
-     * session Unbound logging
-     */
-    @Test
-    public void testValueUnbound() {
-        // expected
-        String valueUnBoundStr = "SESSIONID#" + mockHttpSession.getId()
-                + " valueUnbound : terasoluna=AA";
-
-        // run
-        listener.valueUnbound(sessionBindingEvent);
-
-        // assert
-        verifyLogging(valueUnBoundStr, Level.DEBUG);
 
     }
 

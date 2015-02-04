@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,10 +18,9 @@ package org.terasoluna.gfw.common.exception;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.beans.factory.InitializingBean;
-import org.terasoluna.gfw.common.message.ResultMessages;
 
 /**
- * Interceptor class for logging {@link ResultMessages}.
+ * Interceptor class for logging {@link org.terasoluna.gfw.common.message.ResultMessages}.
  * <p>
  * Please treat as an object of singleton, because this class is thread-safe.
  * </p>
@@ -73,7 +72,7 @@ public class ResultMessagesLoggingInterceptor implements MethodInterceptor,
     }
 
     /**
-     * If ResultMessagesNotificationException occurred, logging {@link ResultMessages}.
+     * If ResultMessagesNotificationException occurred, logging {@link org.terasoluna.gfw.common.message.ResultMessages}.
      * <p>
      * Detail Specification:
      * <ol>

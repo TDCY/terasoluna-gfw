@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ public class XTrackMDCPutFilter extends AbstractMDCPutFilter {
 
     /**
      * set attribute name to set MDC and HTTP Response Header<br>
-     * @param attibuteName attribute name
+     * @param attributeName attribute name
      */
     public void setAttributeName(String attributeName) {
         this.attributeName = attributeName;

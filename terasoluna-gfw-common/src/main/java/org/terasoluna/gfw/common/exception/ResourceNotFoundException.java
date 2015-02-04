@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ public class ResourceNotFoundException extends
      * <p>
      * Takes multiple {@code String} messages as argument.
      * </p>
-     * @param message {@link ResultMessages} instance
+     * @param messages {@link ResultMessages} instance
      */
     public ResourceNotFoundException(ResultMessages messages) {
         super(messages);

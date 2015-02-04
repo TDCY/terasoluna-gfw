@@ -4,7 +4,7 @@
     <parent>
         <artifactId>terasoluna-gfw-parent</artifactId>
         <groupId>org.terasoluna.gfw</groupId>
-        <version>1.0.1.RELEASE</version>
+        <version>5.0.0.RC6</version>
         <relativePath>../terasoluna-gfw-parent/pom.xml</relativePath>
     </parent>
     <artifactId>terasoluna-gfw-recommended-web-dependencies</artifactId>
@@ -18,29 +18,12 @@
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-core</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jcl-over-slf4j</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
         </dependency>
         <!-- == End Tiles == -->
-
-        <!-- == Begin Joda-Time == -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time-jsptags</artifactId>
-        </dependency>
-        <!-- == End Joda-Time == -->
     </dependencies>
 
 </project>

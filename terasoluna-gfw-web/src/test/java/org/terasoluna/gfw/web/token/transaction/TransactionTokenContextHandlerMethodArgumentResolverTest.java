@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 package org.terasoluna.gfw.web.token.transaction;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -105,6 +106,6 @@ public class TransactionTokenContextHandlerMethodArgumentResolverTest {
             e.printStackTrace();
         }
 
-        assertThat(result, is(String.class));
+        assertThat(result, is(instanceOf(String.class)));
     }
 }

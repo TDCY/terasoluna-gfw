@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,12 +28,21 @@ public class RequestDataValueProcessorAdaptor implements
                                              RequestDataValueProcessor {
 
     /**
-     * returns the action passed as argument as it is.
+     * returns the action passed as argument as it is. This method is for compatibility with Spring 3.
      * @see org.springframework.web.servlet.support.RequestDataValueProcessor#processAction(javax.servlet.http.HttpServletRequest,
      *      java.lang.String)
      */
-    @Override
     public String processAction(HttpServletRequest request, String action) {
+        return action;
+    }
+
+    /**
+     * returns the action passed as argument as it is. This method is for compatibility with Spring 4.
+     * @see org.springframework.web.servlet.support.RequestDataValueProcessor#processAction(javax.servlet.http.HttpServletRequest,
+     *      java.lang.String, java.lang.String)
+     * @since 1.0.2
+     */
+    public String processAction(HttpServletRequest request, String action, String method) {
         return action;
     }
 

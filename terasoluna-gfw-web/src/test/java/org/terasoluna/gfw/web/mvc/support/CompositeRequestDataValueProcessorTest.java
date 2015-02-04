@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public class CompositeRequestDataValueProcessorTest {
 
     private HttpServletRequest request = new MockHttpServletRequest();
 
-    RequestDataValueProcessor requestDataValueProcessor = mock(RequestDataValueProcessor.class);
+    RequestDataValueProcessorAdaptor requestDataValueProcessor = mock(RequestDataValueProcessorAdaptor.class);
 
     @Before
     public void setup() {
@@ -51,9 +51,15 @@ public class CompositeRequestDataValueProcessorTest {
     @Test
     public void testProcessActionSameActionAndResult() {
         // Set mock behavior
+        // for Spring3
         when(
                 requestDataValueProcessor.processAction(
                         (HttpServletRequest) (anyObject()), anyString()))
+                .thenReturn("action");
+        // for Spring4
+        when(
+                requestDataValueProcessor.processAction(
+                        (HttpServletRequest) (anyObject()), anyString(), anyString()))
                 .thenReturn("action");
         String result = compositeRequestDataValueProcessor.processAction(
                 request, "action");
@@ -63,9 +69,15 @@ public class CompositeRequestDataValueProcessorTest {
     @Test
     public void testProcessActionDifferectActionAndResult() {
         // Set mock behavior
+        // for Spring3
         when(
                 requestDataValueProcessor.processAction(
                         (HttpServletRequest) (anyObject()), anyString()))
+                .thenReturn("other_action");
+        // for Spring4
+        when(
+                requestDataValueProcessor.processAction(
+                        (HttpServletRequest) (anyObject()), anyString(), anyString()))
                 .thenReturn("other_action");
         String result = compositeRequestDataValueProcessor.processAction(
                 request, "action");

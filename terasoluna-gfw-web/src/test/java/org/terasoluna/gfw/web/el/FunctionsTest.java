@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,15 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.joda.time.DateTime;
 import org.junit.Test;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.terasoluna.gfw.web.el.Functions;
@@ -280,6 +281,104 @@ public class FunctionsTest {
     }
 
     @Test
+    public void testU_NoEncodingSymb() {
+        assertThat(Functions.u("/?:@-._~!$'()*,;"), is("/?:@-._~!$'()*,;"));
+    }
+
+    @Test
+    public void testU_ALPHA() {
+        assertThat(Functions.u("a"), is("a"));
+    }
+
+    @Test
+    public void testU_DIGIT() {
+        assertThat(Functions.u("0"), is("0"));
+    }
+
+    @Test
+    public void testU_EncodingDelimiter() {
+        assertThat(Functions.u("+"), is("%2B"));
+        assertThat(Functions.u("="), is("%3D"));
+        assertThat(Functions.u("&"), is("%26"));
+    }
+
+    @Test
+    public void testU_EncodingChar() {
+        assertThat(Functions.u("%"), is("%25"));
+        assertThat(Functions.u("あ"), is("%E3%81%82"));
+        assertThat(Functions.u("\n"), is("%0A"));
+    }
+
+    @Test
+    public void testU_Space() {
+        assertThat(Functions.u(" "), is("%20"));
+    }
+
+    @Test
+    public void testUAndQuery_NoEncodingSymb() {
+        String inputStr = "/?:@-._~!$'()*,;";
+        String matcher = "name=" + Functions.u(inputStr);
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        map.put("name", inputStr);
+        String actual = Functions.query(map);
+        assertThat(actual, is(matcher));
+    }
+
+    @Test
+    public void testUAndQuery_ALPHA() {
+        String inputStr = "a";
+        String matcher = "name=" + Functions.u(inputStr);
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        map.put("name", inputStr);
+        String actual = Functions.query(map);
+        assertThat(actual, is(matcher));
+    }
+
+    @Test
+    public void testUAndQuery_DIGIT() {
+        String inputStr = "0";
+        String matcher = "name=" + Functions.u(inputStr);
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        map.put("name", inputStr);
+        String actual = Functions.query(map);
+        assertThat(actual, is(matcher));
+    }
+    
+    @Test
+    public void testUAndQuery_EncodingDelimiter() {
+        String[] inputStr = {"+", "&", "="};
+        for(String str : inputStr){
+            String matcher = "name=" + Functions.u(str);
+            Map<String, Object> map = new LinkedHashMap<String, Object>();
+            map.put("name", str);
+            String actual = Functions.query(map);
+            assertThat(actual, is(matcher));
+        }
+    }
+
+    @Test
+    public void testUAndQuery_EncodingChar() {
+        String[] inputStr = {"%", "あ", "\n"};
+        for(String str : inputStr){
+            String matcher = "name=" + Functions.u(str);
+            Map<String, Object> map = new LinkedHashMap<String, Object>();
+            map.put("name", str);
+            String actual = Functions.query(map);
+            assertThat(actual, is(matcher));
+        }
+    }
+
+    @Test
+    public void testUAndQuery_Space() {
+        String inputStr = "spr ing";
+        Map<String, Object> map = new LinkedHashMap<String, Object>();
+        String matcher = "name=" + Functions.u(inputStr);
+        map.put("name", inputStr);
+        String actual = Functions.query(map);
+        assertThat(actual, is(matcher));
+    }
+
+    @Test
     public void testBr() {
         assertThat(Functions.br(null), is(""));
         assertThat(Functions.br(""), is(""));
@@ -378,12 +477,12 @@ public class FunctionsTest {
     }
 
     @Test
-    public void testQuery03() {
+    public void testQuery03() throws Exception {
         Person p = new Person();
         p.setName("すずき いちろう");
         p.setAge(10);
-        p.setDate(new DateTime().withDate(2000, 1, 1).toDate());
         p.setList(Arrays.asList("a", "b", "あ"));
+        p.setDate(new SimpleDateFormat("yyyy-MM-dd").parse("2000-01-01"));
         String query = Functions.query(p);
         assertThat(
                 query,
@@ -459,7 +558,7 @@ public class FunctionsTest {
 class Person {
     private String name;
 
-    @DateTimeFormat(pattern = "yyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     private Integer age;

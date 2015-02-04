@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -197,9 +197,21 @@ public class ResultMessages implements Serializable, Iterable<ResultMessage> {
     /**
      * factory method for warn messages.
      * @return warn messages
+     * @deprecated Instead of this method, please use {@link #warning()}. This
+     *             method will be removed in the future.
      */
+    @Deprecated
     public static ResultMessages warn() {
         return new ResultMessages(WARN);
+    }
+
+    /**
+     * factory method for warning messages.
+     * @return warning messages
+     * @since 5.0.0
+     */
+    public static ResultMessages warning() {
+        return new ResultMessages(WARNING);
     }
 
     /**

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ public class SimpleMapCodeList extends AbstractCodeList {
 
     /**
      * Returns the codelist Information as a Map instance
-     * @param Map codelist information
+     * @return Map codelist information
      * @see org.terasoluna.gfw.common.codelist.CodeList#asMap()
      */
     @Override

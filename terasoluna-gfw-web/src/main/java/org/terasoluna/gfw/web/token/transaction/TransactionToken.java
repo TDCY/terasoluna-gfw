@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,7 +114,7 @@ public class TransactionToken implements Serializable {
     /**
      * Checks whether the an instance of <code>TransactionToken</code> is valid. Which means all values are present for all the
      * three parts of <code>TransactionToken</code>
-     * @return
+     * @return if all values are present, return <code>true</code>
      */
     public boolean valid() {
         if (tokenKey == null || tokenKey.isEmpty()) {
@@ -131,7 +131,7 @@ public class TransactionToken implements Serializable {
 
     /**
      * Returns the token string
-     * @return
+     * @return token string
      */
     public String getTokenString() {
         return tokenName + TOKEN_STRING_SEPARATOR + tokenKey

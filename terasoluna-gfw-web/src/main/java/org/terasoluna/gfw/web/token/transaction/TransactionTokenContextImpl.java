@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -89,7 +89,7 @@ public class TransactionTokenContextImpl implements TransactionTokenContext {
     }
 
     /**
-     * set resrveCommand to {@link ReserveCommand#REMOVE_TOKEN}
+     * set reserveCommand to {@link org.terasoluna.gfw.web.token.transaction.TransactionTokenContextImpl.ReserveCommand#REMOVE_TOKEN}
      * @see org.terasoluna.gfw.web.token.transaction.TransactionTokenContext#removeToken()
      */
     @Override

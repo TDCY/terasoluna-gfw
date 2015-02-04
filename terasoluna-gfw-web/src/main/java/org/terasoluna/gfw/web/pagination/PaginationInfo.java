@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -161,7 +161,7 @@ public class PaginationInfo {
     /**
      * Anchor link which is set when the link is disabled.
      */
-    public static final String DEFAULT_DISABLED_HREF = "#";
+    public static final String DEFAULT_DISABLED_HREF = "javascript:void(0)";
 
     /**
      * Class name that enables the link

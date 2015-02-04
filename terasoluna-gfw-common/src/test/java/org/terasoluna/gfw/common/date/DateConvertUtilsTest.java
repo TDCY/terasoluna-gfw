@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,9 +20,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 import java.sql.Time;
 import java.sql.Timestamp;
-import org.joda.time.DateTime;
 import org.junit.Test;
-import org.terasoluna.gfw.common.date.DateConvertUtils;
 
 public class DateConvertUtilsTest {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,8 @@ package org.terasoluna.gfw.common.message;
  * <ul>
  * <li><code>success</code></li>
  * <li><code>info</code></li>
- * <li><code>warn</code></li>
+ * <li><code>warn</code>(Deprecated from 5.0.0, will be removed in the future)</li>
+ * <li><code>warning(Added from 5.0.0)</code></li>
  * <li><code>error</code></li>
  * </ul>
  * The level of <code>danger</code> is as same as <code>error</code> and <code>danger</code> is usually used as alias for
@@ -38,8 +39,17 @@ public enum StandardResultMessageType implements ResultMessageType {
     INFO("info"),
     /**
      * message type is <code>warn</code>.
+     * @deprecated Instead of this value, please use {@link #WARNING}. This
+     *             value will be removed in the future.
      */
+    @Deprecated
     WARN("warn"),
+    /**
+     * message type is <code>warning</code>.
+     * 
+     * @since 5.0.0
+     */
+    WARNING("warning"),
     /**
      * message type is <code>error</code>.
      */

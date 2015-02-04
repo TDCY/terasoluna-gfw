@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2014 terasoluna.org
+ * Copyright (C) 2013-2015 terasoluna.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,9 +76,13 @@ import org.terasoluna.gfw.web.util.JspTagUtils;
  * </p>
  * <p>
  * By default, a combination of, ``alert`` and any one of
- * ``alert-success,alert-info,alert-warn,alert-error`` classes of bootstrap, is
+ * ``alert-success,alert-info,alert-warn(*1),alert-warning(*2),alert-error`` classes of bootstrap, is
  * used in ``messagesPanel`` <br>
  * the suffix after ``alert-`` is specified using ``type`` of ResultMessages
+ * </p>
+ * <p>
+ * *1: deprecated form 5.0.0<br>
+ * *2: added from 5.0.0
  * </p>
  * <p>
  * <b>When the message is in {@code String} and {@code messagesPanel} is using
@@ -291,7 +295,7 @@ public class MessagesPanelTag extends RequestContextAwareTag {
 	 * </p>
 	 * 
 	 * @param tagWriter
-	 * @param message
+	 * @param messages
 	 * @throws JspException
 	 *             If {@link JspException} occurs in caller writeMessage
 	 */
@@ -332,7 +336,7 @@ public class MessagesPanelTag extends RequestContextAwareTag {
 	 * @param tagWriter
 	 * @param message
 	 * @throws JspException
-	 *             Occurs when {@link #JspTagException} occurs in case when
+	 *             Occurs when {@link JspTagException} occurs in case when
 	 *             nothing is set in the configuration of the tag that
 	 *             configures MessagePanel using tagWriter.
 	 */
